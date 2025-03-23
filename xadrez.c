@@ -1,8 +1,65 @@
 #include <stdio.h>
 
+    void movertorre(int casas){    // USANDO RECURCIVIDADE PARA ESPELHA A LOGICA DO MEU CODIGO
+        if(casas > 0){
+            printf("TORRE MOVE DIREITA\n");
+            movertorre(casas - 1);
+        }
+    }    
+
+    void moverbispo(int i){ 
+
+      while (i > 0)     //LOOPS ANINHADOS PARA O MOVIMENTO DO BISPO
+      { 
+        int j = 1;        
+        while (j > 0)      
+        { printf("BISPO MOVE HORIZONTAL\n");
+           j--;
+        }
+            printf("BISPO MOVE VERTICAL\n");
+            i--;
+        
+       }
+       
+    }
+
+    void moverrainha(int casas){ //MOVIMENTO DA RAINHA 
+        if(casas > 0){
+            printf("RAINHA MOVE ESQUERDA\n");
+            moverrainha(casas - 1);
+        }
+
+    }
+
+    void movercavalo() {
+       for (int i = 0; i < 1; i++)   ///MOVIMENTO DO CAVALO USANDO LOOPS ANINHADOS COMPLEXO COM 3 VARIAVEIS.
+       {    printf("CAVALO MOVE CIMA\n");
+        
+         for (int j = 0; j < 1; j++)
+       {    
+           
+            printf("CAVALO MOVE CIMA\n"); 
+
+                for (int k = 0; k < 1; k++)
+                {
+                    printf("CAVALO MOVE DIREITA\n");break;
+                    
+                }
+                
+        }
+       
+       
+    
+       }
+       
+    }
+    
+
 int main(){
 
-    int opcao, peca, i, j = 1;
+    int opcao, peca, i = 1, j = 1;
+ 
+
 
     printf("********Bem vindo ao Xadrez********\n");
     printf("Menu principal\n");
@@ -29,48 +86,34 @@ int main(){
         {
         case 1:
             
-            while (i <= 5)
-            {
-                printf("TORRE MOVE UMA CASA PARA DIREITA\n");
-                i++;
-            } 
+             movertorre(5);
+           
+              
+           
             break;
 
             case 2:
+                
 
-            do
-            {
-               printf("BISPO MOVE UMA CARA PARA CIMA - DIREITA\n");
-               i++;
-            } while (i <= 5);
+
+
+             moverbispo(5);
             
 
             break;
 
             case 3:
 
-            for ( i = 1; i <= 8; i++)
-            {
-               printf("RAINHA MOVE UMA CASA PARA ESQUERDA\n");
-            }
+            
+             moverrainha(8);
+           
             
 
             break;
 
             case 4:
 
-            while (j--)
-            {
-                for (int i = 1; i <= 2; i++)
-                 { 
-                    printf("CAVALO MOVE UMA CASA PARA BAIXO\n");  
-
-
-                }
-
-                printf("CAVALO MOVE UMA CASA PARA ESQUERDA");
-                printf("\n");
-            }
+            movercavalo();
        
                
              
@@ -80,6 +123,7 @@ int main(){
         break;
         
         default:
+            printf("Opção inválida! Tente novamente.\n");
             break;
         }
 
@@ -89,21 +133,18 @@ int main(){
     
 
     case 2:
-       printf("Torre: Move-se em linha reta horizontalmente ou verticalmente. Seu programa deverá simular o movimento da Torre cinco casas para a direita.\n");
- 
+        printf("Torre: Move-se em linha reta horizontalmente ou verticalmente. Seu programa deverá simular o movimento da Torre cinco casas para a direita.\n");
         printf("Bispo: Move-se na diagonal. Seu programa deverá simular o movimento do Bispo cinco casas na diagonal para cima e à direita. Para representar a diagonal, você imprimirá a combinação de duas direções a cada casa (ex: Cima, Direita).\n");
- 
         printf("Rainha: Move-se em todas as direções. Seu programa deverá simular o movimento da Rainha oito casas para a esquerda.\n");
-
         break;
 
 
      case 3:
-
-     printf("********saindo********");
-
+        printf("********saindo********");
         break;
+
     default:
+        printf("Opção inválida! Tente novamente.\n");
         break;
     }
 
